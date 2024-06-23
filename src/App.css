@@ -33,7 +33,7 @@
 #welcome {
   color: #fff;
   font-family: "Comic Neue";
-  font-size: 69px;
+  font-size: 8vh;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -43,7 +43,7 @@
 #svt {
   color: #fff;
   font-family: "Comic Neue";
-  font-size: 118px;
+  font-size: 13.4vh;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -52,8 +52,8 @@
 }
 
 #bar {
-  width: 850px;
-  height: 23px;
+  width: 59vw;
+  height: 2.2vh;
   flex-shrink: 0;
   margin-top: -8vh;
   background: linear-gradient(
@@ -65,17 +65,19 @@
 }
 
 #mainButton {
-  width: 436px;
-  height: 117px;
+  width: 34vw;
+  height: 15vh;
+  display: flex;
   flex-shrink: 0;
   border-radius: 4px;
   border: 2.5px solid #fff;
   background-color: transparent;
   transform: translateY(8.5vh);
-  position: relative; /* Ensure this is positioned relative for context */
-  z-index: 1; /* Ensure this is above #buttonBack if they overlap */
+  position: relative;
   align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
+  z-index: 1;
 }
 #mainButton:hover {
   cursor: pointer;
@@ -83,26 +85,33 @@
 }
 
 #buttonBack {
-  width: 436px;
-  height: 117px;
+  width: 30vw;
+  height: 15vh;
   flex-shrink: 0;
   border-radius: 4px;
   border-right: 2.5px solid #fff;
   border-bottom: 2.5px solid #fff;
   background-color: transparent;
   position: absolute;
-  top: 58vh;
-  left: 78vh;
+  top: 59vh;
+  left: 73vh;
   z-index: 0;
+}
+
+@media (max-width: 1440px) {
+  #buttonBack {
+    top: 60vh;
+    left: 66vh;
+  }
 }
 
 #begin {
   color: #fff;
   text-align: center;
   font-family: "Comic Neue";
-  font-size: 69px;
+  font-size: 9vh;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-top: 1vh;
+  text-align: center;
 }
