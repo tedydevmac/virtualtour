@@ -1,10 +1,15 @@
 import React from "react";
+
+//libraries
 import { useNavigate } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// screens
 import "./App.css";
 import Overview from "./screens/overview";
 
 function App() {
+  //router
   return (
     <BrowserRouter>
       <Routes>
@@ -16,10 +21,9 @@ function App() {
 }
 
 function LandingPage() {
-  const navigate = useNavigate(); // Get navigate function using useNavigate hook
+  const navigate = useNavigate();
   function HandleClick() {
-    console.log("Button clicked!");
-    navigate("/overview"); // Navigate to /overview when button is clicked
+    navigate("/overview");
   }
   return (
     <div className="App">
