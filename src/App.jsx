@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // screens
 import "./App.css";
 import Overview from "./screens/overview";
+import IncHq from "./screens/360Screens/inc";
 
 function App() {
   //router
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/overview" element={<Overview />} />
+        <Route path="/IncHq" element={<IncHq />} />
       </Routes>
     </BrowserRouter>
   );
@@ -23,7 +25,7 @@ function App() {
 function LandingPage() {
   const navigate = useNavigate();
   function HandleClick() {
-    navigate("/overview");
+    navigate("/IncHq");
   }
   return (
     <div className="App">
