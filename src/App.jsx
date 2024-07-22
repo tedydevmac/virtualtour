@@ -25,9 +25,10 @@ function App() {
 function LandingPage() {
   const navigate = useNavigate();
   function HandleClick() {
-    navigate("/IncHq");
+    navigate("/overview");
   }
   return (
+    
     <div className="App">
       <div className="bg">
         <div className="layer">
