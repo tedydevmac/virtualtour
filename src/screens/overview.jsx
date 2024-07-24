@@ -7,13 +7,14 @@ import "../styles/overviewStyles.css";
 const markers = [
   { id: 1, name: "Block C", x: 35, y: 7.5 }, // x and y as percentages
   { id: 2, name: "Block D", x: 49, y: 68 },
-  { id: 3, name: "Block B", x: 83, y: 8 },
-  { id: 4, name: "Block A", x: 87, y: 40 },
+  { id: 3, name: "Block B", x: 80, y: 8 },
+  { id: 4, name: "Block A", x: 85, y: 25 },
 ];
 
 const Marker = ({ marker, onClick }) => {
+  // for the line
   function Svg() {
-    if (marker.id == 3 || marker.id == 2) {
+    if (marker.id === 3 || marker.id === 2 || marker.id === 4) {
       return (
         <svg
           width="197"
@@ -23,7 +24,7 @@ const Marker = ({ marker, onClick }) => {
           xmlns="http://www.w3.org/2000/svg"
           style={{
             position: "absolute",
-            top: `${marker.y + 1.5}%`,
+            top: `${marker.y + 2}%`,
             left: `${marker.x - 8.5}%`,
             transform: "translate(-50%, -50%)",
           }}
@@ -94,7 +95,89 @@ const Marker = ({ marker, onClick }) => {
         </svg>
       );
     }
+    if (marker.id === 1) {
+      return (
+        <svg
+          width="179"
+          height="61"
+          viewBox="0 0 179 61"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{
+            position: "absolute",
+            top: `${marker.y + 2}%`,
+            left: `${marker.x + 8}%`,
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <line
+            x1="133.879"
+            y1="10.351"
+            x2="176.879"
+            y2="59.351"
+            stroke="black"
+            stroke-width="5"
+          />
+          <line
+            x1="22.0219"
+            y1="9.5001"
+            x2="136.022"
+            y2="10.5001"
+            stroke="black"
+            stroke-width="5"
+          />
+          <g filter="url(#filter0_d_138_12)">
+            <circle
+              cx="14"
+              cy="10"
+              r="8"
+              stroke="black"
+              stroke-width="4"
+              shape-rendering="crispEdges"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_d_138_12"
+              x="0"
+              y="0"
+              width="28"
+              height="28"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feOffset dy="4" />
+              <feGaussianBlur stdDeviation="2" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+              />
+              <feBlend
+                mode="normal"
+                in2="BackgroundImageFix"
+                result="effect1_dropShadow_138_12"
+              />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="effect1_dropShadow_138_12"
+                result="shape"
+              />
+            </filter>
+          </defs>
+        </svg>
+      );
+    }
   }
+
   return (
     <div>
       <Svg />
@@ -125,6 +208,8 @@ const Marker = ({ marker, onClick }) => {
     </div>
   );
 };
+
+// to change functionality to navigate to correct page
 
 function Overview() {
   const navigate = useNavigate();
