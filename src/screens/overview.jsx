@@ -1,17 +1,19 @@
 import React from "react";
 import sstOverview from "../assets/sstoverview.png";
 import { useNavigate } from "react-router-dom";
+import "../styles/overviewStyles.css";
 
 // Marker data
 const markers = [
-  { id: 1, name: "Block C", x: 35, y: 7.5 }, // x and y as percentages
-  { id: 2, name: "Block D", x: 55, y: 65 },
-  { id: 2, name: "Block B", x: 85, y: 8 },
-  { id: 2, name: "Block A", x: 87, y: 40 },
+  { id: 1, name: "Block C", x: 49, y: 7.5 }, // x and y as percentages
+  { id: 2, name: "Block D", x: 33, y: 86 },
+  { id: 2, name: "Block B", x: 70, y: 8 },
+  { id: 2, name: "Block A", x: 70, y: 31 },
 ];
 
 const Marker = ({ marker, onClick }) => (
   <button
+    className="marker"
     style={{
       position: "absolute",
       top: `${marker.y}%`,
