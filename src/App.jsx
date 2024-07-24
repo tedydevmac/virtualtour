@@ -28,7 +28,6 @@ function LandingPage() {
     navigate("/overview");
   }
   return (
-    
     <div className="App">
       <div className="bg">
         <div className="layer">
@@ -40,7 +39,6 @@ function LandingPage() {
               <button id="mainButton" onClick={HandleClick}>
                 <h1 id="begin">Begin!</h1>
               </button>
-              <div id="buttonBack"></div>
             </div>
           </div>
         </div>
