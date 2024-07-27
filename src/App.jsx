@@ -8,16 +8,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Overview from "./screens/overview";
 import IncHq from "./screens/inc";
+import PageTransition from "./components/PageTransition";
 
 function App() {
   //router
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/IncHq" element={<IncHq />} />
-      </Routes>
+      <PageTransition>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/overview" element={<Overview />} />
+          <Route path="/IncHq" element={<IncHq />} />
+        </Routes>
+      </PageTransition>
     </BrowserRouter>
   );
 }
