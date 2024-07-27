@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import sstOverview from "../assets/sstoverview.png";
 import { useNavigate } from "react-router-dom";
 import "../assets/styles/overviewStyles.css";
@@ -10,6 +10,17 @@ const markers = [
   { id: 3, name: "Block B", x: 80, y: 8 },
   { id: 4, name: "Block A", x: 85, y: 25 },
 ];
+
+const blockA = [
+  { id: 1, name: "A1" },
+  { id: 2, name: "A2" },
+];
+
+const blockB = [];
+
+const blockC = [];
+
+const blockD = [];
 
 const Marker = ({ marker, onClick }) => {
   // for the line
@@ -212,6 +223,34 @@ const Marker = ({ marker, onClick }) => {
 // to change functionality to navigate to correct page
 
 function Overview() {
+  const [showModal, setShowModal] = useState(false);
+  const [modalBlock, setModalBlock] = useState("");
+
+  const OptionModal = () => {
+    // to determine which block rooms to show
+    let blockRooms = [];
+    if (modalBlock === "Block A") {
+      blockRooms = blockA;
+    } else if (modalBlock === "Block B") {
+      blockRooms = blockB;
+    } else if (modalBlock === "Block C") {
+      blockRooms = blockC;
+    } else if (modalBlock === "Block D") {
+      blockRooms = blockD;
+    }
+
+    return (
+      <div>
+        <p></p>
+        {blockRooms.map((room) => (
+          <button className="modalButton">
+            <p></p>
+          </button>
+        ))}
+      </div>
+    );
+  };
+
   const navigate = useNavigate();
   const handleMarkerClick = (marker) => {
     console.log("Clicked marker: ", marker.name);
