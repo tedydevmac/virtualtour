@@ -201,7 +201,6 @@ const Marker = ({ marker, onClick }) => {
           transform: "translate(-50%, -50%)", // Center the button
           cursor: "pointer",
           opacity: 0.8, // Semi-transparent
-          backgroundColor: "#ffffff",
           color: "black",
           border: "none",
           borderRadius: "5px",
@@ -240,13 +239,14 @@ function Overview() {
     }
 
     return (
-      <div>
-        <p></p>
+      <div className="modal">
+        <p className="modal-title">Choose one</p>
         {blockRooms.map((room) => (
-          <button className="modalButton">
-            <p></p>
-          </button>
+          <button className="modalButton" /*onClick={}*/>{room.name}</button> // add onclick logic to navigate to the room with the object to the 3D image component
         ))}
+        <button className="exit" onClick={() => setShowModal(false)}>
+          Exit
+        </button>
       </div>
     );
   };
@@ -254,10 +254,12 @@ function Overview() {
   const navigate = useNavigate();
   const handleMarkerClick = (marker) => {
     console.log("Clicked marker: ", marker.name);
-    navigate({
+    setModalBlock(marker.name);
+    setShowModal(true);
+    /*     navigate({
       pathname: "/IncHq",
       state: { markerName: marker.name },
-    });
+    }); */
   };
   return (
     <div>
@@ -276,6 +278,7 @@ function Overview() {
           objectFit: "cover",
         }}
       />
+      {showModal && <OptionModal />}
       {markers.map((marker) => (
         <Marker key={marker.id} marker={marker} onClick={handleMarkerClick} />
       ))}
