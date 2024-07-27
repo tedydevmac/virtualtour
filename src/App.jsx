@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // screens
 import "./App.css";
 import Overview from "./screens/overview";
-import IncHq from "./screens/360Screens/inc";
+import IncHq from "./screens/inc";
 
 function App() {
   //router

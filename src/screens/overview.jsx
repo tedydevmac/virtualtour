@@ -1,7 +1,7 @@
 import React from "react";
 import sstOverview from "../assets/sstoverview.png";
 import { useNavigate } from "react-router-dom";
-import "../styles/overviewStyles.css";
+import "../assets/styles/overviewStyles.css";
 
 // Marker data
 const markers = [
