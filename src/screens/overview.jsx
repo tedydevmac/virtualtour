@@ -12,7 +12,7 @@ const markers = [
 ];
 
 const blockA = [
-  { id: 1, name: "A1" },
+  { id: 1, name: "A1", image: "example.jpeg" },
   { id: 2, name: "A2" },
 ];
 
@@ -224,7 +224,9 @@ const Marker = ({ marker, onClick }) => {
 function Overview() {
   const [showModal, setShowModal] = useState(false);
   const [modalBlock, setModalBlock] = useState("");
+  const navigate = useNavigate();
 
+  // option modal
   const OptionModal = () => {
     // to determine which block rooms to show
     let blockRooms = [];
@@ -238,11 +240,23 @@ function Overview() {
       blockRooms = blockD;
     }
 
+    const navigateToRoom = () => {
+      navigate({
+        pathname: "/IncHq",
+        state: {
+          markerName: blockRooms.name, // Ensure the key matches what you expect in inc.js
+          image: blockRooms.image,
+        },
+      });
+    };
+
     return (
       <div className="modal">
         <p className="modal-title">Choose one</p>
         {blockRooms.map((room) => (
-          <button className="modalButton" /*onClick={}*/>{room.name}</button> // add onclick logic to navigate to the room with the object to the 3D image component
+          <button className="modalButton" onClick={navigateToRoom}>
+            {room.name}
+          </button>
         ))}
         <button className="exit" onClick={() => setShowModal(false)}>
           Exit
@@ -251,7 +265,6 @@ function Overview() {
     );
   };
 
-  const navigate = useNavigate();
   const handleMarkerClick = (marker) => {
     console.log("Clicked marker: ", marker.name);
     let blockRooms = [];
@@ -268,11 +281,6 @@ function Overview() {
     if (blockRooms.length > 0) {
       setShowModal(true);
     }
-
-    /*     navigate({
-      pathname: "/IncHq",
-      state: { markerName: marker.name },
-    }); */
   };
   return (
     <div>

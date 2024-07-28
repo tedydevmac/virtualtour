@@ -4,8 +4,10 @@ import React from "react";
 
 function IncHq() {
   const location = useLocation();
-  const markerName = location.state?.markerName;
-  // const filePath = markerName === "Block X" ? "XXX.jpg" : "XXX.jpg"; => fill in later after 360 images are uploaded
+  const markerName = location.state?.markerName; // Ensure the key matches what is passed from overview.js
+  const image = location.state?.image;
+  console.log("Marker Name: ", markerName);
+  console.log("Image: ", image);
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <ReactPhotoSphereViewer
