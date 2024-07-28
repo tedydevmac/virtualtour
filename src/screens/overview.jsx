@@ -203,7 +203,7 @@ const Marker = ({ marker, onClick }) => {
           opacity: 0.8, // Semi-transparent
           color: "black",
           border: "none",
-          borderRadius: "5px",
+          borderRadius: "20px",
           padding: "5px 10px",
           // Prevent the button from taking focus outline on click (optional)
           outline: "none",
