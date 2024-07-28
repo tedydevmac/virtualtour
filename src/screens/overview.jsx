@@ -254,8 +254,21 @@ function Overview() {
   const navigate = useNavigate();
   const handleMarkerClick = (marker) => {
     console.log("Clicked marker: ", marker.name);
+    let blockRooms = [];
     setModalBlock(marker.name);
-    setShowModal(true);
+    if (modalBlock === "Block A") {
+      blockRooms = blockA;
+    } else if (modalBlock === "Block B") {
+      blockRooms = blockB;
+    } else if (modalBlock === "Block C") {
+      blockRooms = blockC;
+    } else if (modalBlock === "Block D") {
+      blockRooms = blockD;
+    }
+    if (blockRooms.length > 0) {
+      setShowModal(true);
+    }
+
     /*     navigate({
       pathname: "/IncHq",
       state: { markerName: marker.name },
