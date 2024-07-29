@@ -1,3 +1,8 @@
+# Virtual Tour for SST
+
+- Includes an overview map and welcome page
+- By 12 Aug, planning to add some rooms for virtual tour
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
