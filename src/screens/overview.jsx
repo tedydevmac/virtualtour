@@ -13,14 +13,14 @@ const markers = [
 
 const blockA = [
   { id: 1, name: "A1", image: "example.jpeg" },
-  { id: 2, name: "A2" },
+  { id: 2, name: "A2", image: "example.jpeg" },
 ];
 
-const blockB = [];
+const blockB = [{ id: 1, name: "Room X", image: "example.jpeg" }];
 
-const blockC = [];
+const blockC = [{ id: 1, name: "Room X", image: "example.jpeg" }];
 
-const blockD = [];
+const blockD = [{ id: 1, name: "Room X", image: "example.jpeg" }];
 
 const Marker = ({ marker, onClick }) => {
   // for the line
@@ -224,29 +224,39 @@ const Marker = ({ marker, onClick }) => {
 function Overview() {
   const [showModal, setShowModal] = useState(false);
   const [modalBlock, setModalBlock] = useState("");
+  const [blockRooms, setBlockRooms] = useState([]);
   const navigate = useNavigate();
 
   // option modal
   const OptionModal = () => {
     // to determine which block rooms to show
-    let blockRooms = [];
     if (modalBlock === "Block A") {
-      blockRooms = blockA;
+      setBlockRooms(blockA);
     } else if (modalBlock === "Block B") {
-      blockRooms = blockB;
+      setBlockRooms(blockB);
     } else if (modalBlock === "Block C") {
-      blockRooms = blockC;
+      setBlockRooms(blockC);
     } else if (modalBlock === "Block D") {
-      blockRooms = blockD;
+      setBlockRooms(blockD);
     }
 
-    const navigateToRoom = () => {
-      navigate({
-        pathname: "/IncHq",
-        state: {
-          markerName: blockRooms.name, // Ensure the key matches what you expect in inc.js
-          image: blockRooms.image,
-        },
+    const navigateToRoom = (roomName) => {
+      console.log("roomName: ", roomName);
+      blockRooms.forEach((room) => {
+        if (roomName === room.name) {
+          console.log(
+            "Navigating to room: ",
+            room.name,
+            " with image: ",
+            room.image
+          );
+          navigate("/IncHq", {
+            state: {
+              markerName: "Example Marker",
+              image: "example.jpg",
+            },
+          });
+        }
       });
     };
 
@@ -254,7 +264,10 @@ function Overview() {
       <div className="modal">
         <p className="modal-title">Choose one</p>
         {blockRooms.map((room) => (
-          <button className="modalButton" onClick={navigateToRoom}>
+          <button
+            className="modalButton"
+            onClick={() => navigateToRoom(room.name)}
+          >
             {room.name}
           </button>
         ))}
@@ -267,20 +280,17 @@ function Overview() {
 
   const handleMarkerClick = (marker) => {
     console.log("Clicked marker: ", marker.name);
-    let blockRooms = [];
     setModalBlock(marker.name);
     if (modalBlock === "Block A") {
-      blockRooms = blockA;
+      setBlockRooms(blockA);
     } else if (modalBlock === "Block B") {
-      blockRooms = blockB;
+      setBlockRooms(blockB);
     } else if (modalBlock === "Block C") {
-      blockRooms = blockC;
+      setBlockRooms(blockC);
     } else if (modalBlock === "Block D") {
-      blockRooms = blockD;
+      setBlockRooms(blockD);
     }
-    if (blockRooms.length > 0) {
-      setShowModal(true);
-    }
+    setShowModal(true);
   };
   return (
     <div>
