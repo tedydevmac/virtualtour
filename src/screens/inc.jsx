@@ -5,25 +5,14 @@ import React, { useEffect } from "react";
 function IncHq() {
   const location = useLocation();
   const { markerName, image } = location.state || {};
-
-  useEffect(() => {
-    console.log("Location State: ", location.state);
-    console.log("Marker Name: ", markerName);
-    console.log("Image: ", image);
-  }, [location.state, markerName, image]);
-
-  const handleImageError = (event) => {
-    console.error("Error loading image: ", event);
+  const getFileName = (path) => {
+    const parts = path.split("/");
+    return parts[parts.length - 1];
   };
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
-      <ReactPhotoSphereViewer
-        src={"example.jpg"}
-        height={"100vh"}
-        width={"100%"}
-        onError={handleImageError}
-      />
+      <ReactPhotoSphereViewer src={image} height={"100vh"} width={"100%"} />
     </div>
   );
 }

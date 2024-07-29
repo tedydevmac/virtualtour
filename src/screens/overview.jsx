@@ -12,17 +12,17 @@ const markers = [
 ];
 
 const blockA = [
-  { id: 1, name: "A1", image: "../../public/example.jpgg" },
-  { id: 2, name: "A2", image: "../../public/example.jpgg" },
+  { id: 1, name: "SST Inc HQ", image: "SST_Inc.jpg" },
+  { id: 2, name: "A2", image: "example.jpg" },
 ];
 
 const blockB = [
-  { id: 1, name: "Room X", image: "../../public/../../public/example.jpgg" },
+  { id: 1, name: "Room X", image: "example.jpg" },
 ];
 
-const blockC = [{ id: 1, name: "Room X", image: "../../public/example.jpgg" }];
+const blockC = [{ id: 1, name: "Room X", image: "example.jpg" }];
 
-const blockD = [{ id: 1, name: "Room X", image: "../../public/example.jpgg" }];
+const blockD = [{ id: 1, name: "Room X", image: "example.jpg" }];
 
 const Marker = ({ marker, onClick }) => {
   // for the line
@@ -254,8 +254,8 @@ function Overview() {
           );
           navigate("/IncHq", {
             state: {
-              markerName: "Example Marker",
-              image: "example.jpg",
+              markerName: room.name,
+              image: room.image,
             },
           });
         }
