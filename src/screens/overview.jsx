@@ -12,15 +12,17 @@ const markers = [
 ];
 
 const blockA = [
-  { id: 1, name: "A1", image: "example.jpeg" },
-  { id: 2, name: "A2", image: "example.jpeg" },
+  { id: 1, name: "A1", image: "../../public/example.jpgg" },
+  { id: 2, name: "A2", image: "../../public/example.jpgg" },
 ];
 
-const blockB = [{ id: 1, name: "Room X", image: "example.jpeg" }];
+const blockB = [
+  { id: 1, name: "Room X", image: "../../public/../../public/example.jpgg" },
+];
 
-const blockC = [{ id: 1, name: "Room X", image: "example.jpeg" }];
+const blockC = [{ id: 1, name: "Room X", image: "../../public/example.jpgg" }];
 
-const blockD = [{ id: 1, name: "Room X", image: "example.jpeg" }];
+const blockD = [{ id: 1, name: "Room X", image: "../../public/example.jpgg" }];
 
 const Marker = ({ marker, onClick }) => {
   // for the line
