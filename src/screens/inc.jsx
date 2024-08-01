@@ -25,7 +25,11 @@ function IncHq() {
     if (currentImage > 0) {
       setCurrentImage(currentImage - 1);
     } else {
-      setCurrentImage(num);
+      if (currentImage === num) {
+        setCurrentImage(0);
+      } else {
+        setCurrentImage(num);
+      }
     }
   };
 
@@ -69,6 +73,7 @@ function IncHq() {
           left: "5%",
           transform: "translate(-50%, -50%)",
         }}
+        onClick={decrement}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
