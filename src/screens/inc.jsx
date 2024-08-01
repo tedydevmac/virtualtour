@@ -12,7 +12,7 @@ function IncHq() {
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
-      <ReactPhotoSphereViewer src={image} height={"100vh"} width={"100%"} />
+      <ReactPhotoSphereViewer src={image[3]} height={"100vh"} width={"100%"} />
     </div>
   );
 }

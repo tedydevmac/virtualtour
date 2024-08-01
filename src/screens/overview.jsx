@@ -12,13 +12,23 @@ const markers = [
 ];
 
 const blockA = [
-  { id: 1, name: "SST Inc HQ", image: "SST_Inc.jpg" },
+  {
+    id: 1,
+    name: "SST Inc HQ",
+    image: [
+      "inc1.jpg",
+      "inc2.jpg",
+      "inc3.jpg",
+      "inc4.jpg",
+      "inc5.jpg",
+      "inc6.jpg",
+      "inc7.jpg",
+    ],
+  },
   { id: 2, name: "A2", image: "example.jpg" },
 ];
 
-const blockB = [
-  { id: 1, name: "Room X", image: "example.jpg" },
-];
+const blockB = [{ id: 1, name: "Room X", image: "example.jpg" }];
 
 const blockC = [{ id: 1, name: "Room X", image: "example.jpg" }];
 
