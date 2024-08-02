@@ -8,6 +8,7 @@ function IncHq() {
   const location = useLocation();
   const { markerName, image, description } = location.state || {};
   const [currentImage, setCurrentImage] = useState(0);
+
   const getFileName = (path) => {
     const parts = path.split("/");
     return parts[parts.length - 1];
@@ -37,6 +38,20 @@ function IncHq() {
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
+      <button
+        style={{
+          position: "absolute",
+          top: "5%",
+          left: "5%",
+          height: "5%",
+          width: "5%",
+          transform: "translate(-50%, -50%)",
+          zIndex: "1000",
+        }}
+        onClick={() => window.history.back()}
+      >
+        Return
+      </button>
       <ReactPhotoSphereViewer
         src={image[currentImage]}
         height={"100vh"}

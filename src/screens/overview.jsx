@@ -9,7 +9,7 @@ const markers = [
   { id: 3, name: "Block B", x: 80, y: 8 },
   { id: 4, name: "Block A", x: 85, y: 25 },
 ];
-
+// descriptions were copied from the open house descriptions, elec and biotech descriptions are placeholders as OH ones were not usable
 const blockA = [];
 
 const blockB = [];
@@ -27,13 +27,15 @@ const blockC = [
       "inc6.jpg",
       "inc7.jpg",
     ],
-    description: "this is sst inc",
+    description:
+      "SST Inc HQ. is part of SST’s technology talent development programme. It aims to be locally and globally recognised as an incubator that fosters a deep interest in Infocomm Technology among our students and nurtures their app development and entrepreneurship talents to impact their community positively",
   },
   {
     id: 2,
     name: "Robotics Room",
     image: ["robo1.jpg", "robo2.jpg", "robo3.jpg"],
-    description: "this is sst inc",
+    description:
+      "'Robotics @APEX began in 2010, guided by Effective, Efficient, and Exemplary values. With dedicated students and staff, the club earned recognition in local and international robotics communities. Members work with LEGO, Arduino, and OpenCV systems, applying their skills in competitions like the First Lego League Cityshaper, iCooL Challenge, and IDE Robotics Challenge. Creative projects solve real-world issues. Competing and research develop resilience, critical thinking, communication, and project management skills for life.",
   },
   {
     id: 3,

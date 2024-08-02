@@ -17,7 +17,7 @@ export default function MoreInfo({ markerName, description }) {
         zIndex: 1000,
       }}
     >
-      <button onClick={toggleModal}>
+      <button onClick={toggleModal} id="moreInfo">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"
@@ -37,8 +37,10 @@ export default function MoreInfo({ markerName, description }) {
       </button>
       {showModal && (
         <div id="modal" style={{ ...modalStyle, display: "flex" }}>
-          <h1 className="title">{markerName}</h1>
-          <p className="body">{description}</p>
+          <div style={{ marginLeft: "5%", marginRight: "5%" }}>
+            <h1 className="title">{markerName}</h1>
+            <p className="body">{description}</p>
+          </div>
         </div>
       )}
     </div>
