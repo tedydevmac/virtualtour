@@ -1,6 +1,7 @@
 import { ReactPhotoSphereViewer } from "react-photo-sphere-viewer";
 import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import "../assets/styles/PageStyles/360styles.css";
 
 function IncHq() {
   const location = useLocation();
@@ -41,6 +42,7 @@ function IncHq() {
         width={"100%"}
       />
       <button
+        class="next butt"
         style={{
           position: "absolute",
           top: "50%",
@@ -73,6 +75,7 @@ function IncHq() {
           left: "5%",
           transform: "translate(-50%, -50%)",
         }}
+        class="prev butt"
         onClick={decrement}
       >
         <svg

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import sstOverview from "../assets/sstoverview.png";
 import { useNavigate } from "react-router-dom";
-import "../assets/styles/overviewStyles.css";
-
+import "../assets/styles/PageStyles/overviewStyles.css";
 // Marker data
 const markers = [
   { id: 1, name: "Block C", x: 35, y: 7.5 }, // x and y as percentages

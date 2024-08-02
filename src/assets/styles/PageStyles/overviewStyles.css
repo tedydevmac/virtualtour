@@ -1,4 +1,4 @@
-button {
+.modalButton {
   border-radius: 4px;
   background-color: #ffffff;
   border: none;
@@ -10,14 +10,14 @@ button {
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
 }
 
-button {
+.modalButton {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-button:after {
+.modalButton:after {
   content: "»";
   position: absolute;
   opacity: 0;
@@ -26,12 +26,7 @@ button:after {
   transition: 0.5s;
 }
 
-button:hover {
-  padding-right: 24px;
-  padding-left: 8px;
-}
-
-button:hover:after {
+.modalButton:hover:after {
   opacity: 1;
   right: 10px;
 }
@@ -84,6 +79,8 @@ button:hover:after {
 
 .modalButton:hover {
   background-color: #0056b3;
+  padding-right: 24px;
+  padding-left: 8px;
 }
 
 .modalButton p {
