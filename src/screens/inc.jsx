@@ -44,7 +44,7 @@ function IncHq() {
           top: "5%",
           left: "5%",
           height: "5%",
-          width: "5%",
+          width: "8%",
           transform: "translate(-50%, -50%)",
           zIndex: "1000",
         }}
