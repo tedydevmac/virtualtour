@@ -27,21 +27,25 @@ const blockC = [
       "inc6.jpg",
       "inc7.jpg",
     ],
+    description: "this is sst inc",
   },
   {
     id: 2,
     name: "Robotics Room",
     image: ["robo1.jpg", "robo2.jpg", "robo3.jpg"],
+    description: "this is sst inc",
   },
   {
     id: 3,
     name: "Electronics Lab",
     image: ["elec1.jpg", "elec2.jpg"],
+    description: "this is sst inc",
   },
   {
     id: 4,
     name: "Biotechnology Lab",
     image: ["biotech1.jpg", "biotech2.jpg"],
+    description: "this is sst inc",
   },
 ];
 
@@ -279,6 +283,7 @@ function Overview() {
             state: {
               markerName: room.name,
               image: room.image,
+              description: room.description,
             },
           });
         }

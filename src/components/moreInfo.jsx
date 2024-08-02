@@ -2,16 +2,21 @@ import React, { useState } from "react";
 
 import "./components.css";
 
-export default function MoreInfo({ items }) {
+export default function MoreInfo({ markerName, description }) {
   const [showModal, setShowModal] = useState(false);
-
-  items = items;
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
   return (
-    <div>
+    <div
+      style={{
+        position: "fixed",
+        bottom: "10px", // Adjust as needed
+        right: "10px", // Adjust as needed
+        zIndex: 1000,
+      }}
+    >
       <button onClick={toggleModal}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +37,8 @@ export default function MoreInfo({ items }) {
       </button>
       {showModal && (
         <div id="modal" style={{ ...modalStyle, display: "flex" }}>
-          <h1 className="title">{items}</h1>
-          <p className="body">{items.header}</p>
+          <h1 className="title">{markerName}</h1>
+          <p className="body">{description}</p>
         </div>
       )}
     </div>

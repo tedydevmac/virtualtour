@@ -2,10 +2,11 @@ import { ReactPhotoSphereViewer } from "react-photo-sphere-viewer";
 import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "../assets/styles/PageStyles/360styles.css";
+import MoreInfo from "../components/moreInfo";
 
 function IncHq() {
   const location = useLocation();
-  const { markerName, image } = location.state || {};
+  const { markerName, image, description } = location.state || {};
   const [currentImage, setCurrentImage] = useState(0);
   const getFileName = (path) => {
     const parts = path.split("/");
@@ -95,6 +96,7 @@ function IncHq() {
           />
         </svg>
       </button>
+      <MoreInfo markerName={markerName} description={description} />
     </div>
   );
 }
