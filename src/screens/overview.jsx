@@ -286,6 +286,17 @@ function Overview() {
       });
     };
 
+    if (blockRooms.length === 0) {
+      return (
+        <div className="modal">
+          <p className="modal-title">No rooms to tour :(</p>
+          <button className="exit" onClick={() => setShowModal(false)}>
+            Exit
+          </button>
+        </div>
+      );
+    }
+
     return (
       <div className="modal">
         <p className="modal-title">Choose one</p>
