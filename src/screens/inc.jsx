@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "../assets/styles/PageStyles/360styles.css";
 import MoreInfo from "../components/moreInfo";
+import { AlwaysStencilFunc } from "three";
 
 function IncHq() {
   const location = useLocation();
@@ -16,23 +17,31 @@ function IncHq() {
 
   const increment = () => {
     const num = image.length - 1;
-    if (currentImage < num) {
-      setCurrentImage(currentImage + 1);
-    } else {
-      setCurrentImage(0);
+    try {
+      if (currentImage < num) {
+        setCurrentImage(currentImage + 1);
+      } else {
+        setCurrentImage(0);
+      }
+    } catch (e) {
+      alert("image could not be loaded");
     }
   };
 
   const decrement = () => {
     const num = image.length - 1;
-    if (currentImage > 0) {
-      setCurrentImage(currentImage - 1);
-    } else {
-      if (currentImage === num) {
-        setCurrentImage(0);
+    try {
+      if (currentImage > 0) {
+        setCurrentImage(currentImage - 1);
       } else {
-        setCurrentImage(num);
+        if (currentImage === num) {
+          setCurrentImage(0);
+        } else {
+          setCurrentImage(num);
+        }
       }
+    } catch (e) {
+      alert("image could not be loaded");
     }
   };
 
