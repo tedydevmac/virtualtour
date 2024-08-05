@@ -14,23 +14,48 @@ const markers = [
 const blockA = [
   {
     id: 1,
-    name: "SST Inc HQ",
-    image: [
-      "inc1.jpg",
-      "inc2.jpg",
-      "inc3.jpg",
-      "inc4.jpg",
-      "inc5.jpg",
-      "inc6.jpg",
-      "inc7.jpg",
-    ],
+    name: "Room X",
+    image: "example.jpg",
   },
   { id: 2, name: "A2", image: "example.jpg" },
 ];
 
 const blockB = [{ id: 1, name: "Room X", image: "example.jpg" }];
 
-const blockC = [{ id: 1, name: "Room X", image: "example.jpg" }];
+const blockC = [
+  {
+    id: 1,
+    name: "Robotics@APEX",
+    image: [
+      "360pictures/RoboRm1.JPG",
+      "360pictures/RoboRm2.JPG",
+      "360pictures/RoboRm3.JPG",
+    ],
+  },
+  {
+    id: 2,
+    name: "Electronics Lab",
+    image: ["360pictures/ElectronicsRm1.JPG", "360pictures/ElectronicsRm2.JPG"],
+  },
+  {
+    id: 3,
+    name: "Biotechnology Lab",
+    image: ["360pictures/BiotechRm1.JPG", "360pictures/BiotechRm2.JPG"],
+  },
+  {
+    id: 4,
+    name: "SST Inc HQ",
+    image: [
+      "360pictures/Inc_main2.JPG",
+      "360pictures/Inc_main3.JPG",
+      "360pictures/Inc_imacs1.JPG",
+      "360pictures/Inc_imacs3.JPG",
+      "360pictures/Inc_back.JPG",
+      "360pictures/Inc_gaytunnel.JPG",
+      "360pictures/Inc_boardroom.JPG",
+    ],
+  },
+];
 
 const blockD = [{ id: 1, name: "Room X", image: "example.jpg" }];
 
