@@ -1,0 +1,107 @@
+.modalButton {
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: none;
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+}
+
+.modalButton {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.modalButton:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.modalButton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.line {
+  width: 171px;
+  height: 61px;
+  flex-shrink: 0;
+}
+
+.marker:hover {
+  background-color: #d0d0d0;
+}
+
+/* modal.css */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0px 20px 20px 20px;
+  z-index: 1000;
+}
+
+.modal-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+}
+
+.modalButton {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em;
+}
+
+.modalButton:hover {
+  background-color: #0056b3;
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.modalButton p {
+  margin: 0;
+}
+
+.exit {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #000000;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em;
+  text-decoration: underline;
+  margin-left: 84%;
+}
+.exit:after {
+  content: none;
+}
+
+.exit:hover {
+  padding: 0;
+  text-decoration: none;
+}

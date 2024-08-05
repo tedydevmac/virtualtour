@@ -1,11 +1,15 @@
 import { ReactPhotoSphereViewer } from "react-photo-sphere-viewer";
 import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import "../assets/styles/PageStyles/360styles.css";
+import MoreInfo from "../components/moreInfo";
+import { AlwaysStencilFunc } from "three";
 
 function IncHq() {
   const location = useLocation();
-  const { markerName, image } = location.state || {};
+  const { markerName, image, description } = location.state || {};
   const [currentImage, setCurrentImage] = useState(0);
+
   const getFileName = (path) => {
     const parts = path.split("/");
     return parts[parts.length - 1];
@@ -13,34 +17,57 @@ function IncHq() {
 
   const increment = () => {
     const num = image.length - 1;
-    if (currentImage < num) {
-      setCurrentImage(currentImage + 1);
-    } else {
-      setCurrentImage(0);
+    try {
+      if (currentImage < num) {
+        setCurrentImage(currentImage + 1);
+      } else {
+        setCurrentImage(0);
+      }
+    } catch (e) {
+      alert("image could not be loaded");
     }
   };
 
   const decrement = () => {
     const num = image.length - 1;
-    if (currentImage > 0) {
-      setCurrentImage(currentImage - 1);
-    } else {
-      if (currentImage === num) {
-        setCurrentImage(0);
+    try {
+      if (currentImage > 0) {
+        setCurrentImage(currentImage - 1);
       } else {
-        setCurrentImage(num);
+        if (currentImage === num) {
+          setCurrentImage(0);
+        } else {
+          setCurrentImage(num);
+        }
       }
+    } catch (e) {
+      alert("image could not be loaded");
     }
   };
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
+      <button
+        style={{
+          position: "absolute",
+          top: "5%",
+          left: "5%",
+          height: "5%",
+          width: "8%",
+          transform: "translate(-50%, -50%)",
+          zIndex: "1000",
+        }}
+        onClick={() => window.history.back()}
+      >
+        Return
+      </button>
       <ReactPhotoSphereViewer
         src={image[currentImage]}
         height={"100vh"}
         width={"100%"}
       />
       <button
+        class="next butt"
         style={{
           position: "absolute",
           top: "50%",
@@ -73,6 +100,7 @@ function IncHq() {
           left: "5%",
           transform: "translate(-50%, -50%)",
         }}
+        class="prev butt"
         onClick={decrement}
       >
         <svg
@@ -92,6 +120,7 @@ function IncHq() {
           />
         </svg>
       </button>
+      <MoreInfo markerName={markerName} description={description} />
     </div>
   );
 }

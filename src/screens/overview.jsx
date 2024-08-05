@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import sstOverview from "../assets/sstoverview.png";
 import { useNavigate } from "react-router-dom";
-import "../assets/styles/overviewStyles.css";
-
+import "../assets/styles/PageStyles/overviewStyles.css";
 // Marker data
 const markers = [
   { id: 1, name: "Block C", x: 35, y: 7.5 }, // x and y as percentages
@@ -10,54 +9,53 @@ const markers = [
   { id: 3, name: "Block B", x: 80, y: 8 },
   { id: 4, name: "Block A", x: 85, y: 25 },
 ];
+// descriptions were copied from the open house descriptions, elec and biotech descriptions are placeholders as OH ones were not usable
+const blockA = [];
 
-const blockA = [
-  {
-    id: 1,
-    name: "Room X",
-    image: "example.jpg",
-  },
-  { id: 2, name: "A2", image: "example.jpg" },
-];
-
-const blockB = [{ id: 1, name: "Room X", image: "example.jpg" }];
+const blockB = [];
 
 const blockC = [
   {
     id: 1,
-    name: "Robotics@APEX",
+    name: "SST Inc HQ",
+    image: [
+      "360pictures/Inc_main2.JPG",
+      "360pictures/Inc_main3.JPG",
+      "360pictures/imacs1.JPG",
+      "360pictures/imacs2.JPG",
+      "360pictures/Inc_back.JPG",
+      "360pictures/Inc_gaytunnel.JPG",
+      "360pictures/Inc_boardroom.JPG",
+    ],
+    description:
+      "SST Inc HQ. is part of SST’s technology talent development programme. It aims to be locally and globally recognised as an incubator that fosters a deep interest in Infocomm Technology among our students and nurtures their app development and entrepreneurship talents to impact their community positively",
+  },
+  {
+    id: 2,
+    name: "Robotics@Apex",
     image: [
       "360pictures/RoboRm1.JPG",
       "360pictures/RoboRm2.JPG",
       "360pictures/RoboRm3.JPG",
     ],
-  },
-  {
-    id: 2,
-    name: "Electronics Lab",
-    image: ["360pictures/ElectronicsRm1.JPG", "360pictures/ElectronicsRm2.JPG"],
+    description:
+      "'Robotics @APEX began in 2010, guided by Effective, Efficient, and Exemplary values. With dedicated students and staff, the club earned recognition in local and international robotics communities. Members work with LEGO, Arduino, and OpenCV systems, applying their skills in competitions like the First Lego League Cityshaper, iCooL Challenge, and IDE Robotics Challenge. Creative projects solve real-world issues. Competing and research develop resilience, critical thinking, communication, and project management skills for life.",
   },
   {
     id: 3,
-    name: "Biotechnology Lab",
-    image: ["360pictures/BiotechRm1.JPG", "360pictures/BiotechRm2.JPG"],
+    name: "Electronics Lab",
+    image: ["360pictures/ElectronicsRm1.JPG", "360pictures/ElectronicsRm2.JPG"],
+    description: "this is sst inc",
   },
   {
     id: 4,
-    name: "SST Inc HQ",
-    image: [
-      "360pictures/Inc_main2.JPG",
-      "360pictures/Inc_main3.JPG",
-      "360pictures/Inc_imacs1.JPG",
-      "360pictures/Inc_imacs3.JPG",
-      "360pictures/Inc_back.JPG",
-      "360pictures/Inc_gaytunnel.JPG",
-      "360pictures/Inc_boardroom.JPG",
-    ],
+    name: "Biotechnology Lab",
+    image: ["360pictures/BiotechRm1.JPG", "360pictures/BiotechRm2.JPG"],
+    description: "this is sst inc",
   },
 ];
 
-const blockD = [{ id: 1, name: "Room X", image: "example.jpg" }];
+const blockD = [];
 
 const Marker = ({ marker, onClick }) => {
   // for the line
@@ -291,11 +289,23 @@ function Overview() {
             state: {
               markerName: room.name,
               image: room.image,
+              description: room.description,
             },
           });
         }
       });
     };
+
+    if (blockRooms.length === 0) {
+      return (
+        <div className="modal">
+          <p className="modal-title">No rooms to tour :(</p>
+          <button className="exit" onClick={() => setShowModal(false)}>
+            Exit
+          </button>
+        </div>
+      );
+    }
 
     return (
       <div className="modal">

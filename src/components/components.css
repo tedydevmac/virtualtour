@@ -1,9 +1,9 @@
-button {
+#moreInfo {
   background: none;
   border: none;
   padding: 0;
 }
-button:hover {
+#moreInfo:hover {
   cursor: pointer;
   transform: scale(1.2);
 }
@@ -13,13 +13,10 @@ button:hover {
   font-family: Cabin;
   font-size: 5vh;
   font-weight: 700;
-  margin-top: 5vh;
   padding: 0;
-  margin-bottom: -2vh;
 }
 
 .body {
-  margin-bottom: 50vh;
   color: #153bf1;
   font-size: 5vh;
   font-family: Cabin;
