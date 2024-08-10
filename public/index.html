@@ -27,6 +27,54 @@
     <title>React App</title>
   </head>
   <body>
+    <!-- START { Duplicate this section for tooltip content, change the id and use it in respective tooltip } -->
+    <script type="text/template" id="tooltip1">
+      <article>
+        <h2>Foosball tables & Arcade machines</h2>
+      </article>
+    </script>
+    <script type="text/template" id="tooltip2">
+      <article>
+        <h2>Gay Tunnel</h2>
+      </article>
+    </script>
+    <script type="text/template" id="tooltip3">
+      <article>
+        <h2>iMacs</h2>
+      </article>
+    </script>
+    <script type="text/template" id="tooltip4">
+      <article>
+        <h2>Oclioscope</h2>
+      </article>
+    </script>
+    <script type="text/template" id="tooltip5">
+      <article>
+        <h2>Function generator</h2>
+      </article>
+    </script>
+    <script type="text/template" id="tooltip6">
+      <article>
+        <h2>Power supply</h2>
+      </article>
+    </script>
+    <script type="text/template" id="tooltip7">
+      <article>
+        <h2>3D Printers</h2>
+      </article>
+    </script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three/build/three.module.js",
+          "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.module.js",
+          "@photo-sphere-viewer/markers-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin@5/index.module.js"
+        }
+      }
+    </script>
+    <!-- END -->
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
