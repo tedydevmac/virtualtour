@@ -53,8 +53,8 @@ const modalStyle = {
   zIndex: 1,
   left: "50%",
   top: "50%",
-  minWidth: "300px", // Minimum width to ensure it doesn't get too small
-  minHeight: "300px", // Minimum height to ensure it doesn't get too small
+  minWidth: "40%", // Minimum width to ensure it doesn't get too small
+  minHeight: "40%", // Minimum height to ensure it doesn't get too small
   maxWidth: "70vw", // Maximum width to prevent it from getting too large
   maxHeight: "70vh", // Maximum height to prevent it from getting too large
   overflow: "auto",

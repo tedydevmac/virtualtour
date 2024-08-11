@@ -433,10 +433,10 @@ function Overview() {
 
     if (blockRooms.length === 0) {
       return (
-        <div className="modal">
+        <div className="modal" style={{ minWidth: "20%", minHeight: "20%" }}>
           <p className="modal-title">No rooms available</p>
           <button className="exit" onClick={() => setShowModal(false)}>
-            Exit
+            X
           </button>
         </div>
       );
