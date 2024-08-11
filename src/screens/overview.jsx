@@ -10,16 +10,9 @@ const markers = [
   { id: 4, name: "Block A", x: 85, y: 25 },
 ];
 
-const blockA = [
-  {
-    id: 1,
-    name: "Room X",
-    image: "example.jpg",
-  },
-  { id: 2, name: "A2", image: "example.jpg" },
-];
+const blockA = [];
 
-const blockB = [{ id: 1, name: "Room X", image: "example.jpg" }];
+const blockB = [];
 const blockC = [
   {
     id: 1,
@@ -31,7 +24,7 @@ const blockC = [
     ],
     tooltips: [[], [], []], // i dunno what to put for this one
     description:
-      "Robotics @APEX started in 2010 with a small group of students. Guided by the 3 operative values - Effective, Efficient and Exemplary and with the dedication of students and staff, the club scaled new heights year after year, establishing its reputation in the local and international robotics communities. \nMembers gained exposure to various robotics systems like LEGO, Arduino and OpenCV systems. Students are encouraged to apply their robotics knowledge and skills in both local and international competitions such as the First Lego League Cityshaper Challenge, International CoSpace OnLine (iCooL) Challenge as well as the IDE (Innovation, Design and Engineering) Robotics Challenge. \nStudents are also encouraged to embark on creative projects and apply their knowledge of robotics systems to solve real-world problems. The pursuit of excellence in competitions and interest-driven research hones resilience, perseverance, critical thinking, communication and project management skills in our members that will serve them well for life.",
+      "Robotics @APEX started in 2010 with a small group of students. Guided by the 3 operative values - Effective, Efficient and Exemplary and with the dedication of students and staff, the club scaled new heights year after year, establishing its reputation in the local and international robotics communities. \nMembers gained exposure to various robotics systems like LEGO, Arduino and OpenCV systems. Students are encouraged to apply their robotics knowledge and skills in both local and international competitions such as the First Lego League Cityshaper Challenge, International CoSpace OnLine (iCooL) Challenge as well as the IDE (Innovation, Design and Engineering) Robotics Challenge. \nStudents are also encouraged to embark on creative projects and apply their knowledge of robotics systems to solve real-world problems.",
   },
   {
     id: 2,
@@ -196,7 +189,7 @@ const blockC = [
   },
 ];
 
-const blockD = [{ id: 1, name: "Room X", image: "example.jpg" }];
+const blockD = [];
 
 const Marker = ({ marker, onClick }) => {
   // for the line
@@ -438,6 +431,17 @@ function Overview() {
       });
     };
 
+    if (blockRooms.length === 0) {
+      return (
+        <div className="modal">
+          <p className="modal-title">No rooms available</p>
+          <button className="exit" onClick={() => setShowModal(false)}>
+            Exit
+          </button>
+        </div>
+      );
+    }
+
     return (
       <div className="modal">
         <p className="modal-title">Choose one</p>
@@ -450,7 +454,7 @@ function Overview() {
           </button>
         ))}
         <button className="exit" onClick={() => setShowModal(false)}>
-          Exit
+          X
         </button>
       </div>
     );

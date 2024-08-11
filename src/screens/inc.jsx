@@ -82,6 +82,7 @@ function IncHq() {
             transform: "translate(-50%, -50%)",
             zIndex: "1000",
           }}
+          className="modalButton"
           onClick={() => window.history.back()}
         >
           Return

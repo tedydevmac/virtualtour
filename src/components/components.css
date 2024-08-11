@@ -9,16 +9,21 @@
 }
 
 .title {
-  color: #d53d3d;
-  font-family: Cabin;
-  font-size: 5vh;
-  font-weight: 700;
-  padding: 0;
+  color: #000;
+  font-family: "Krona One";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
 }
 
 .body {
-  color: #153bf1;
-  font-size: 5vh;
-  font-family: Cabin;
-  font-weight: 700;
+  color: #000;
+  font-family: "Krona One";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: -5%;
 }
