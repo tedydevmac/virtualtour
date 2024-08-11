@@ -29,7 +29,7 @@ const blockC = [
       "360pictures/RoboRm2.JPG",
       "360pictures/RoboRm3.JPG",
     ],
-    tooltips: [[], [], []],
+    tooltips: [[], [], []], // i dunno what to put for this one
     description:
       "Robotics @APEX started in 2010 with a small group of students. Guided by the 3 operative values - Effective, Efficient and Exemplary and with the dedication of students and staff, the club scaled new heights year after year, establishing its reputation in the local and international robotics communities. \nMembers gained exposure to various robotics systems like LEGO, Arduino and OpenCV systems. Students are encouraged to apply their robotics knowledge and skills in both local and international competitions such as the First Lego League Cityshaper Challenge, International CoSpace OnLine (iCooL) Challenge as well as the IDE (Innovation, Design and Engineering) Robotics Challenge. \nStudents are also encouraged to embark on creative projects and apply their knowledge of robotics systems to solve real-world problems. The pursuit of excellence in competitions and interest-driven research hones resilience, perseverance, critical thinking, communication and project management skills in our members that will serve them well for life.",
   },
@@ -51,8 +51,8 @@ const blockC = [
           size: { width: 35, height: 35 },
           anchor: "bottom center",
           position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
+            pitch: -0.35, // y-axis
+            yaw: -1.5, // x-axis
           },
           hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
         },
@@ -68,8 +68,8 @@ const blockC = [
           size: { width: 35, height: 35 },
           anchor: "bottom center",
           position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
+            pitch: -0.29, // y-axis
+            yaw: -1.5, // x-axis
           },
           hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
         },
@@ -85,8 +85,8 @@ const blockC = [
           size: { width: 35, height: 35 },
           anchor: "bottom center",
           position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
+            pitch: -0.3, // y-axis
+            yaw: -1.6, // x-axis
           },
           hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
         },
@@ -102,82 +102,13 @@ const blockC = [
           size: { width: 35, height: 35 },
           anchor: "bottom center",
           position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
+            pitch: -0.15, // y-axis
+            yaw: -0.35, // x-axis
           },
           hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
         },
       ],
-      [
-        {
-          id: "1",
-          tooltip: {
-            content: document.querySelector("#tooltip4").innerText,
-            className: "custom-tooltip",
-            position: "top",
-            trigger: "click",
-          },
-          image: "Icons/Location Marker.svg",
-          size: { width: 35, height: 35 },
-          anchor: "bottom center",
-          position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
-          },
-          hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
-        },
-        {
-          id: "2",
-          tooltip: {
-            content: document.querySelector("#tooltip5").innerText,
-            className: "custom-tooltip",
-            position: "top",
-            trigger: "click",
-          },
-          image: "Icons/Location Marker.svg",
-          size: { width: 35, height: 35 },
-          anchor: "bottom center",
-          position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
-          },
-          hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
-        },
-        {
-          id: "3",
-          tooltip: {
-            content: document.querySelector("#tooltip6").innerText,
-            className: "custom-tooltip",
-            position: "top",
-            trigger: "click",
-          },
-          image: "Icons/Location Marker.svg",
-          size: { width: 35, height: 35 },
-          anchor: "bottom center",
-          position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
-          },
-          hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
-        },
-        {
-          id: "4",
-          tooltip: {
-            content: document.querySelector("#tooltip7").innerText,
-            className: "custom-tooltip",
-            position: "top",
-            trigger: "click",
-          },
-          image: "Icons/Location Marker.svg",
-          size: { width: 35, height: 35 },
-          anchor: "bottom center",
-          position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
-          },
-          hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
-        },
-      ],
+      [],
     ],
   },
   {
@@ -215,7 +146,7 @@ const blockC = [
           anchor: "bottom center",
           position: {
             pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
+            yaw: 0.6, // x-axis
           },
           hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
         },
@@ -232,64 +163,12 @@ const blockC = [
           anchor: "bottom center",
           position: {
             pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
-          },
-          hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
-        },
-        {
-          id: "3",
-          tooltip: {
-            content: document.querySelector("#tooltip3").innerText,
-            className: "custom-tooltip",
-            position: "top",
-            trigger: "click",
-          },
-          image: "Icons/Location Marker.svg",
-          size: { width: 35, height: 35 },
-          anchor: "bottom center",
-          position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
+            yaw: -1.75, // x-axis
           },
           hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
         },
       ],
-      [
-        {
-          id: "1",
-          tooltip: {
-            content: document.querySelector("#tooltip2").innerText,
-            className: "custom-tooltip",
-            position: "top",
-            trigger: "click",
-          },
-          image: "Icons/Location Marker.svg",
-          size: { width: 35, height: 35 },
-          anchor: "bottom center",
-          position: {
-            pitch: -0.1, // y-axis
-            yaw: 1.2, // x-axis
-          },
-          hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
-        },
-        {
-          id: "2",
-          tooltip: {
-            content: document.querySelector("#tooltip3").innerText,
-            className: "custom-tooltip",
-            position: "top",
-            trigger: "click",
-          },
-          image: "Icons/Location Marker.svg",
-          size: { width: 35, height: 35 },
-          anchor: "bottom center",
-          position: {
-            pitch: -0.1, // y-axis
-            yaw: 0.9, // x-axis
-          },
-          hoverScale: { amount: 1, easing: "ease-in-out", duration: 100 },
-        },
-      ],
+      [],
       [
         {
           id: "1",
