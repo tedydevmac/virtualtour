@@ -77,12 +77,10 @@ function IncHq() {
             position: "absolute",
             top: "5%",
             left: "5%",
-            height: "5%",
-            width: "8%",
             transform: "translate(-50%, -50%)",
             zIndex: "1000",
           }}
-          className="modalButton"
+          className="modalButtonReturn"
           onClick={() => window.history.back()}
         >
           Return

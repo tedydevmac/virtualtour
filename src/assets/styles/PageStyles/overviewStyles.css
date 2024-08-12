@@ -78,6 +78,36 @@
   font-size: 1em;
 }
 
+/* Styles for devices with a width of 768px or less (tablets and mobile devices) */
+@media (max-width: 1284px) {
+  .modalButton {
+    font-size: 0.8em; /* Adjust font size */
+  }
+}
+
+.modalButtonReturn {
+  display: block;
+  font-family: "Krona One";
+  background: rgba(60, 140, 221, 0.66);
+  width: 10%;
+  padding: 10px;
+  margin: 10px 0;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em;
+}
+
+/* Styles for devices with a width of 768px or less (tablets and mobile devices) */
+@media (max-width: 1284px) {
+  .modalButtonReturn {
+    font-size: 0.8em; /* Adjust font size */
+    width: 10%;
+  }
+}
+
 .modalButton:hover {
   background-color: #0056b3;
   padding-right: 24px;

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import sstOverview from "../assets/sstoverview.png";
 import { useNavigate } from "react-router-dom";
 import "../assets/styles/PageStyles/overviewStyles.css";
+import ReactDOM from "react-dom";
+
 // Marker data
 const markers = [
   { id: 1, name: "Block C", x: 35, y: 7.5 }, // x and y as percentages
@@ -10,9 +12,16 @@ const markers = [
   { id: 4, name: "Block A", x: 85, y: 25 },
 ];
 
-const blockA = [];
+const blockA = [
+  {
+    id: 1,
+    name: "Room X",
+    image: "example.jpg",
+  },
+  { id: 2, name: "A2", image: "example.jpg" },
+];
 
-const blockB = [];
+const blockB = [{ id: 1, name: "Room X", image: "example.jpg" }];
 const blockC = [
   {
     id: 1,
@@ -24,7 +33,7 @@ const blockC = [
     ],
     tooltips: [[], [], []], // i dunno what to put for this one
     description:
-      "Robotics @APEX started in 2010 with a small group of students. Guided by the 3 operative values - Effective, Efficient and Exemplary and with the dedication of students and staff, the club scaled new heights year after year, establishing its reputation in the local and international robotics communities. \nMembers gained exposure to various robotics systems like LEGO, Arduino and OpenCV systems. Students are encouraged to apply their robotics knowledge and skills in both local and international competitions such as the First Lego League Cityshaper Challenge, International CoSpace OnLine (iCooL) Challenge as well as the IDE (Innovation, Design and Engineering) Robotics Challenge. \nStudents are also encouraged to embark on creative projects and apply their knowledge of robotics systems to solve real-world problems.",
+      "Robotics @APEX started in 2010 with a small group of students. Guided by the 3 operative values - Effective, Efficient and Exemplary and with the dedication of students and staff, the club scaled new heights year after year, establishing its reputation in the local and international robotics communities. \nMembers gained exposure to various robotics systems like LEGO, Arduino and OpenCV systems. Students are encouraged to apply their robotics knowledge and skills in both local and international competitions such as the First Lego League Cityshaper Challenge, International CoSpace OnLine (iCooL) Challenge as well as the IDE (Innovation, Design and Engineering) Robotics Challenge. \nStudents are also encouraged to embark on creative projects and apply their knowledge of robotics systems to solve real-world problems. The pursuit of excellence in competitions and interest-driven research hones resilience, perseverance, critical thinking, communication and project management skills in our members that will serve them well for life.",
   },
   {
     id: 2,
@@ -189,7 +198,7 @@ const blockC = [
   },
 ];
 
-const blockD = [];
+const blockD = [{ id: 1, name: "Room X", image: "example.jpg" }];
 
 const Marker = ({ marker, onClick }) => {
   // for the line
@@ -357,12 +366,49 @@ const Marker = ({ marker, onClick }) => {
       );
     }
   }
+  const [device, setDevice] = useState("");
+  const [orientation, setOrientation] = useState("");
+  const overlay = document.getElementById("modal-overlay");
+  const Modal = (props) => {
+    return ReactDOM.createPortal(
+      <div className="overlay">{props.children}</div>,
+      overlay
+    );
+  };
+  useEffect(() => {
+    // Determine device type
+    const userAgent = navigator.userAgent;
+    if (/Mobi|Android/i.test(userAgent)) {
+      setDevice("Mobile");
+    } else {
+      setDevice("Desktop");
+    }
+
+    // Determine screen orientation
+    const handleOrientationChange = () => {
+      const orientationType = window.screen.orientation.type;
+      setOrientation(orientationType);
+    };
+
+    handleOrientationChange(); // Initial check
+    window.screen.orientation.addEventListener(
+      "change",
+      handleOrientationChange
+    );
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.screen.orientation.removeEventListener(
+        "change",
+        handleOrientationChange
+      );
+    };
+  }, []);
 
   return (
     <div>
-      <Svg />
+      {device === "Mobile" ? null : <Svg />}
       <button
-        className="marker"
         style={{
           position: "absolute",
           top: `${marker.y}%`,
@@ -431,17 +477,6 @@ function Overview() {
       });
     };
 
-    if (blockRooms.length === 0) {
-      return (
-        <div className="modal" style={{ minWidth: "20%", minHeight: "20%" }}>
-          <p className="modal-title">No rooms available</p>
-          <button className="exit" onClick={() => setShowModal(false)}>
-            X
-          </button>
-        </div>
-      );
-    }
-
     return (
       <div className="modal">
         <p className="modal-title">Choose one</p>
@@ -482,8 +517,8 @@ function Overview() {
         style={{
           minWidth: "100%",
           minHeight: "100%",
-          width: "auto",
-          height: "auto",
+          width: "100%",
+          height: "100%",
           position: "absolute",
           top: "50%",
           left: "50%",
