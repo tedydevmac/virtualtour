@@ -509,27 +509,88 @@ function Overview() {
     }
     setShowModal(true);
   };
+  useEffect(() => {
+    // Determine device type
+    const userAgent = navigator.userAgent;
+    if (/Mobi|Android/i.test(userAgent)) {
+      setDevice("Mobile");
+    } else {
+      setDevice("Desktop");
+    }
+
+    // Determine screen orientation
+    const handleOrientationChange = () => {
+      const orientationType = window.screen.orientation.type;
+      setOrientation(orientationType);
+    };
+
+    handleOrientationChange(); // Initial check
+    window.screen.orientation.addEventListener(
+      "change",
+      handleOrientationChange
+    );
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.screen.orientation.removeEventListener(
+        "change",
+        handleOrientationChange
+      );
+    };
+  }, []);
+  const [device, setDevice] = useState("");
+  const [orientation, setOrientation] = useState("");
+  const overlay = document.getElementById("modal-overlay");
+  const Modal = (props) => {
+    return ReactDOM.createPortal(
+      <div className="overlay">{props.children}</div>,
+      overlay
+    );
+  };
   return (
     <div>
-      <img
-        src={sstOverview}
-        alt="image not found"
-        style={{
-          minWidth: "100%",
-          minHeight: "100%",
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          objectFit: "cover",
-        }}
-      />
-      {showModal && <OptionModal />}
-      {markers.map((marker) => (
-        <Marker key={marker.id} marker={marker} onClick={handleMarkerClick} />
-      ))}
+      {(device === "Mobile" && orientation === "portrait-primary") ||
+      (device === "Mobile" && orientation === "portrait-secondary") ? (
+        <Modal>
+          <p
+            style={{
+              color: "white",
+              fontFamily: "Krona One",
+              marginLeft: 5,
+              alignContent: "center",
+              textAlign: "center",
+            }}
+          >
+            Please rotate your device to landscape for a better experience
+          </p>
+        </Modal>
+      ) : (
+        <div>
+          <img
+            src={sstOverview}
+            alt="image not found"
+            style={{
+              minWidth: "100%",
+              minHeight: "100%",
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              objectFit: "cover",
+            }}
+          />
+          {showModal && <OptionModal />}
+          {markers.map((marker) => (
+            <Marker
+              key={marker.id}
+              marker={marker}
+              onClick={handleMarkerClick}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

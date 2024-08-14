@@ -74,13 +74,15 @@ function LandingPage() {
       <div className="bg">
         <div className="layer">
           {(device === "Mobile" && orientation === "portrait-primary") ||
-          orientation === "potrait-secondary" ? (
+          (device === "Mobile" && orientation === "portrait-secondary") ? (
             <Modal>
               <p
                 style={{
                   color: "white",
                   fontFamily: "Krona One",
                   marginLeft: 5,
+                  alignContent: "center",
+                  textAlign: "center",
                 }}
               >
                 Please rotate your device to landscape for a better experience
